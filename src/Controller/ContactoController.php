@@ -72,7 +72,27 @@ final class ContactoController extends AbstractController
 
     }
 
+    #[Route('/contacto/borrar/{codigo}', name:'borrar')]
+    public function borrar(ManagerRegistry $doctrine, int $codigo){
+        $contacto = $doctrine->getRepository(Contacto::class)->find($codigo);
+        
+        if ($contacto){
+            $entityManager = $doctrine->getManager();
 
+            try{
+                $entityManager->remove($contacto);
+                $entityManager->flush();
+                return $this->redirectToRoute('inicio');
+
+            }catch(\Exception $e){
+                error_log('Error al eliminar el contacto: ' . $e->getMessage());
+                return new Response ("Error eliminando objeto".$e->getMessage());
+            }
+            
+        } else{
+            return new Response("No se ha encontrado el contacto");
+        }
+    }
 
 
 }
