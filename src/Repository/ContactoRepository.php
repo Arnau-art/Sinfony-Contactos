@@ -40,4 +40,14 @@ class ContactoRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function startsWith($value): array{
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.nombre LIKE :val')
+        ->setParameter('val', $value . '%')
+        ->orderBy('c.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+    
 }
