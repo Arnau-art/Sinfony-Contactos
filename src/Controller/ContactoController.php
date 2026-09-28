@@ -11,6 +11,7 @@ use App\Entity\Contacto;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactoFormType;
 
+
 final class ContactoController extends AbstractController
 {
     #[Route('/contacto/{codigo?1}', name: 'contacto', requirements: ['codigo' => '[0-9]+'])]
@@ -132,8 +133,16 @@ final class ContactoController extends AbstractController
 
 
 
+        if ($formulario->isSubmitted()) {
+            if ($formulario->get('borrar')->isClicked()) {
+                // aquí eliminaremos el contacto
+                $entityManager = $doctrine->getManager();
+                $entityManager->remove($contacto);
+                $entityManager->flush();
+                return $this->redirectToRoute('inicio');
+            }
+        }
         if ($formulario->isSubmitted() && $formulario->isValid()) {
-
             // Guardamos y redirigimos a la ficha
 
             $contacto = $formulario->getData();

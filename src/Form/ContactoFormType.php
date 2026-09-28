@@ -16,7 +16,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Provincia;
 
 
 class ContactoFormType extends AbstractType
@@ -35,7 +36,14 @@ class ContactoFormType extends AbstractType
 
             ->add('email', null, array('label' => 'Correo electrónico'))
 
-            ->add('save', SubmitType::class, array('label' => 'Enviar'));
+            ->add('provincia', EntityType::class, [
+                'class' => Provincia::class,
+                'choice_label' => 'nombre'
+            ])
+
+            ->add('save', SubmitType::class, array('label' => 'Guardar'))
+
+            ->add('borrar', SubmitType::class, array('label' => 'Borrar'));
 
     }
 

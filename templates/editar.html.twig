@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editar contacto
-
-{% endblock %}
+{% block title %}Editar contacto{% endblock %}
 
 {% block body %}
 
 <h1>Editar contacto</h1>
 
-{{ form(formulario) }}
+{{ form_start(formulario) }}
+
+{{ form_widget(formulario) }}
+
+{{ form_end(formulario) }}
 
 {% endblock %}

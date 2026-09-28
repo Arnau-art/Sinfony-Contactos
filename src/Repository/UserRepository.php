@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 
+
 /**
  * @extends ServiceEntityRepository<User>
  */

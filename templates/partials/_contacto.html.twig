@@ -1,9 +1,17 @@
 <ul>
 
-    <li><strong>{{ contacto.nombre }}</strong></li>
+    <li>
+        <a href="{{ path('contacto', {'codigo': contacto.id}) }}">
+            <strong>{{ contacto.nombre }}</strong>
+        </a>
+    </li>
 
     <li><strong>Teléfono</strong>: {{ contacto.telefono }}</li>
 
     <li><strong>E-mail</strong>: {{ contacto.email }}</li>
 
+    <li><strong>Provincia</strong>: {{ contacto.provincia.nombre }}</li>
+
 </ul>
+
+<a href="{{ path('borrar',{'codigo':contacto.id})}}">Borrar</a>

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <h1>Contactos</h1>
+<a href="{{ path('nuevo') }}">Añadir contacto</a>
 <h2>Bienvenido a la web de contactos.</h2>
 <p>Página de inicio</p>
 {% for contacto in contactos %}

@@ -22,7 +22,6 @@ final class Version20260923100752 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE contacto ADD CONSTRAINT FK_2741493C4E7121AF FOREIGN KEY (provincia_id) REFERENCES provincia (id)');
         $this->addSql('CREATE INDEX IDX_2741493C4E7121AF ON contacto (provincia_id)');
-        $this->addSql('ALTER TABLE provincia ADD nombre VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void

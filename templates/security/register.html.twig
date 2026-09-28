@@ -1,0 +1,11 @@
+<h1>Crear cuenta</h1>
+
+{{ form_start(registrationForm) }}
+
+{{ form_row(registrationForm.name) }}
+{{ form_row(registrationForm.email) }}
+{{ form_row(registrationForm.password) }}
+
+<button type="submit">Registrarse</button>
+
+{{ form_end(registrationForm) }}
